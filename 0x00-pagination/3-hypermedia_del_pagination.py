@@ -40,17 +40,19 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
-        """return the appropriate page of the dataset
-        """
+        """"""
         assert type(index) is int and type(page_size) is int
         assert 0 <= index < len(self.dataset())
         dataset = self.indexed_dataset()
-        keys = list(dataset.keys())
-        start = keys[index]
-        end = keys[index + page_size]
+        data = []
+        i = index
+        while i < len(dataset) and len(data) < page_size:
+            if i in dataset:
+                data.append(dataset[i])
+            i += 1
         return {
             'index': index,
-            'next_index': index + page_size,
-            'page_size': len(dataset),
-            'data': [dataset[i] for i in range(start, end)],
+            'next_index': i,
+            'page_size': len(data),
+            'data': data
         }
