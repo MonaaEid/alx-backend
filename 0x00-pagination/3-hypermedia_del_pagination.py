@@ -49,7 +49,7 @@ class Server:
         while i < len(dataset) and len(data) < page_size:
             if i in dataset:
                 data.append(dataset[i])
-            i += 1
+                i += 1
         return {
             'index': index,
             'next_index': i,
