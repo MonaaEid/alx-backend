@@ -59,5 +59,5 @@ class Server:
             'index': index,
             'next_index': next_index,
             'page_size': len(page_data),
-            'data': data
+            'data': page_data
         }
