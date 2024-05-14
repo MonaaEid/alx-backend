@@ -18,7 +18,6 @@ class Config:
 app.config.from_object(Config)
 
 
-def get
 
 @babel.localeselector
 def get_locale():
@@ -30,7 +29,6 @@ def get_locale():
 def index():
     """Return 2-index.html"""
     return render_template('3-index.html')
-
 
 
 if __name__ == "__main__":
