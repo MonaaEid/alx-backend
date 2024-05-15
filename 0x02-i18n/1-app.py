@@ -4,16 +4,16 @@ Store it in a module-level variable named babel"""
 from flask import Flask, render_template
 from flask_babel import Babel
 
-app = Flask(__name__)
-babel = Babel(app)
-
 
 class Config:
     """Config class"""
     LANGUAGES = ['en', 'fr']
 
 
+app = Flask(__name__)
+babel = Babel(app)
 app.config.from_object(Config)
+app.url_map.strict_slashes = False
 
 
 @app.route('/')
